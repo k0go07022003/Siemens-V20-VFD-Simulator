@@ -1,0 +1,24 @@
+services:
+  v20-simulator:
+    build: .
+    container_name: v20-sim
+    ports:
+      - "5000:5000"   # Web GUI
+      - "502:502"     # Modbus TCP
+    restart: unless-stopped
+
+    # --- Domyslnie: Modbus TCP (laczy sie z FT2J po Ethernecie) ---
+    command: ["--tcp", "--tcp-port", "502", "--web-port", "5000", "--slave-id", "1"]
+
+    # --- Modbus RTU: odkomentuj ponizej i zakomentuj command wyzej ---
+    # Podlacz konwerter USB-RS485, sprawdz numer portu COM w Windows:
+    #   Device Manager -> Ports (COM & LPT) -> np. COM3
+    # W Dockerze na Windows z Docker Desktop, porty COM sa dostepne jako:
+    #   //./COM3  (notacja Windows)
+    #
+    # command: ["--port", "/dev/ttyUSB0", "--baudrate", "9600", "--web-port", "5000", "--slave-id", "1"]
+    # devices:
+    #   - "/dev/ttyUSB0:/dev/ttyUSB0"
+    #
+    # Na Windows z Docker Desktop, porty COM NIE sa bezposrednio
+    # dostepne w kontenerze Linux. Uzyj trybu TCP albo run_windows.bat
