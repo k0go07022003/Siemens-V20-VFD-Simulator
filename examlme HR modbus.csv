@@ -1,5 +1,0 @@
-HR 400100,STW1,Control word
-HR 400101,HSW,Speed setpoint
-HR 400110,ZSW1,Status word
-HR 400111,HIW,Actual speed
-HR 401000,,Control word
