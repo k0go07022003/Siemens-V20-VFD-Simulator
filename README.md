@@ -25,6 +25,33 @@ Once started, open your browser: **http://localhost:5000**
 
 ---
 
+## Quick Start (Linux)
+
+### 1. Install Python
+```bash
+sudo apt install python3 python3-venv python3-pip
+```
+
+### 2. Clone and run
+```bash
+git clone https://github.com/k0go07022003/Siemens-V20-VFD-Simulator.git
+cd Siemens-V20-VFD-Simulator
+```
+
+- **`./run_rtu.sh`** — Modbus RTU mode (RS-485, e.g. USB converter)
+- **`./run_tcp.sh`** — Modbus TCP mode (Ethernet)
+
+On first run the script will automatically create a Python virtual environment and install all dependencies.
+
+> **Note:** Modbus TCP port 502 requires root privileges. Use `--tcp-port 5020` as an unprivileged alternative:
+> ```bash
+> python3 v20_web.py --tcp --tcp-port 5020 --web-port 5000
+> ```
+
+Once started, open your browser: **http://localhost:5000**
+
+---
+
 ## Modbus Parameters
 
 ### RTU Connection (serial)
