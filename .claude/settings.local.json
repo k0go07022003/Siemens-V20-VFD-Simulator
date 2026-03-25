@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(py -3.14 -c \"import sys; print\\(sys.executable\\)\")",
-      "Bash(echo $PATH)",
-      "Bash(powershell -Command \"[Environment]::GetEnvironmentVariable\\(''Path'', ''User''\\)\")"
-    ]
-  }
-}
